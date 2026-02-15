@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESPOND Safeguarding Framework</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* RESPOND Staff Guide - Full RESPOND_Basic Styling */
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            margin-left: 40px;  /* ADD THIS LINE */
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-links a i {
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E3F2FD 0%, #F5F5F5 100%);
+            color: #1a1a1a;
+            padding: 6rem 0 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(44,90,160,.05)"/><stop offset="100%" stop-color="rgba(44,90,160,0)"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>') repeat;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .hero h1 i {
+            margin-right: 0.75rem;
+            color: #2c5aa0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #666;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-image {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header h2 i {
+            margin-right: 0.75rem;
+            color: #2c5aa0;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Steps Grid */
+        .steps-row-1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .steps-row-2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 1000px) {
+            .steps-row-1, .steps-row-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .steps-row-1, .steps-row-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #f8f9fa, #f1f3f4);
+            border-radius: 16px;
+            border: 1px solid #f0f0f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .step-header {
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+}
+        /* Step color variations */
+.step-1 { background: linear-gradient(135deg, #24437b, #1a3159); } /* Recognise - Navy */
+.step-2 { background: linear-gradient(135deg, #235e4b, #1a4638); } /* Engage - Green */
+.step-3 { background: linear-gradient(135deg, #a4684e, #8a5640); } /* Support - Brown */
+.step-4 { background: linear-gradient(135deg, #cd372b, #a82d23); } /* Pause - Red */
+.step-5 { background: linear-gradient(135deg, #ebaf24, #c9951e); } /* Offer - Gold */
+.step-6 { background: linear-gradient(135deg, #287bc9, #1f62a1); } /* Notify - Blue */
+.step-7 { background: linear-gradient(135deg, #8625eb, #6b1dbc); } /* Document - Purple */
+
+Mapping:
+        .step-info {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+
+        .step-subtitle {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .expand-icon {
+            color: #2c5aa0;
+            font-size: 1rem;
+            flex-shrink: 0;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+        }
+
+        .step-card:hover .expand-icon {
+            opacity: 1;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tip and Warning boxes (used in Cultural Competence) */
+        .tip-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tip-box p {
+            font-size: 0.95rem;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .tip-box i {
+            margin-right: 0.5rem;
+        }
+
+        /* Balance box - dark blue styling */
+        .balance-box {
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            border-left: 4px solid #1e3d6f;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .balance-box p {
+            font-size: 0.95rem;
+            color: white;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .balance-box i {
+            margin-right: 0.5rem;
+        }
+
+        /* Framework Cards */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .framework-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .framework-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .framework-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: #2c5aa0;
+            border: 1px solid #E3F2FD;
+        }
+
+        .framework-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .framework-card > p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .expand-btn {
+            background: none;
+            border: none;
+            color: #2c5aa0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .expand-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Cultural Competence Section */
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .culture-card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #f0f0f0;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .culture-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.75rem;
+        }
+
+        .culture-card h4 i {
+            color: #2c5aa0;
+            margin-right: 0.5rem;
+        }
+
+        .culture-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Inclusion Card - clickable */
+        .inclusion-card {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .inclusion-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(44,90,160,0.15);
+            border-color: #2c5aa0;
+        }
+
+        .inclusion-card-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .inclusion-card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .inclusion-card-text {
+            flex: 1;
+        }
+
+        .inclusion-card-text h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e3d6f;
+            margin-bottom: 0.25rem;
+        }
+
+        .inclusion-card-text p {
+            font-size: 0.95rem;
+            color: #2c5aa0;
+            margin: 0;
+        }
+
+        .inclusion-card-arrow {
+            color: #2c5aa0;
+            font-size: 1rem;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .inclusion-card:hover .inclusion-card-arrow {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .inclusion-card-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .inclusion-card-arrow {
+                display: none;
+            }
+        }
+
+        /* Framework Image Section */
+        .framework-visual {
+            text-align: center;
+            position: relative;
+            padding: 3rem 0;
+            overflow: hidden;
+        }
+
+        .framework-image-container {
+            position: relative;
+            display: inline-block;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .framework-image {
+            position: relative;
+            z-index: 2;
+        }
+
+        .framework-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* Single Expanding Circle */
+        .pc-circle-large {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 8px solid #7ec5f9;
+            transform: translate(-50%, -50%);
+            animation: ripple-large 8s cubic-bezier(0.1, 0.4, 0.2, 1) infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .pc-circle-large-2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 6px solid #7ec5f9;
+            transform: translate(-50%, -50%);
+            animation: ripple-large 8s cubic-bezier(0.1, 0.4, 0.2, 1) infinite;
+            animation-delay: 4s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .pc-circle-large-3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 4px solid #7ec5f9;
+            transform: translate(-50%, -50%);
+            animation: ripple-large 8s cubic-bezier(0.1, 0.4, 0.2, 1) infinite;
+            animation-delay: 8s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes ripple-large {
+            0% {
+                width: 300px;
+                height: 300px;
+                opacity: 0.8;
+            }
+            100% {
+                width: 900px;
+                height: 900px;
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pc-circle-large,
+            .pc-circle-large-2,
+            .pc-circle-large-3 {
+                display: none;
+            }
+        }
+
+        /* Protective Capacity Box */
+        .pc-box {
+            background: #7ec5f9;
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 550px;
+            margin: 2rem auto 0;
+            text-align: center;
+        }
+
+        .pc-box h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .pc-box h3 i {
+            margin-right: 0.5rem;
+        }
+
+        .pc-box p {
+            font-size: 1rem;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .pc-equation {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 1.25rem;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Intro text */
+        .intro-text {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Ask RESPOND Section */
+        .ask-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ask-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+        }
+
+        .ask-card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .ask-card-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .ask-card h3 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .ask-card > p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .ask-link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #2c5aa0, #1e3d6f);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .ask-link-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(44,90,160,0.4);
+        }
+
+        .ask-disclaimer {
+            font-size: 0.85rem;
+            color: #999;
+            margin: 0;
+        }
+
+        .faq-card {
+            background: linear-gradient(135deg, #f8f9fa, #f1f3f4);
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-card:hover {
+            border-color: #2c5aa0;
+            box-shadow: 0 4px 15px rgba(44,90,160,0.1);
+        }
+
+        .faq-card.active {
+            border-color: #2c5aa0;
+            background: white;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .faq-icon {
+            color: #2c5aa0;
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .faq-question span {
+            flex: 1;
+        }
+
+        .faq-chevron {
+            color: #999;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-card.active .faq-chevron {
+            transform: rotate(180deg);
+            color: #2c5aa0;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 1.5rem 1.5rem 3.5rem;
+        }
+
+        .faq-card.active .faq-answer {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        .faq-answer p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.75rem;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            color: #2c5aa0;
+            background: #f0f0f0;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .modal-title {
+            flex: 1;
+        }
+
+        .modal-title h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+
+        .modal-title p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .modal-body {
+            color: #444;
+        }
+
+        .modal-body p.description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .modal-body h4 {
+            color: #2c5aa0;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+        }
+
+        .modal-body h4:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body h4 i {
+            margin-right: 0.5rem;
+        }
+
+        .modal-body ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .modal-body li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2c5aa0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .modal-tip {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .modal-tip p {
+            font-size: 0.95rem;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .modal-tip i {
+            margin-right: 0.5rem;
+        }
+
+        .modal-warning {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .modal-warning p {
+            font-size: 0.95rem;
+            color: #991b1b;
+            margin: 0;
+        }
+
+        .modal-warning i {
+            margin-right: 0.5rem;
+        }
+
+        /* ACT Modal Icons */
+        .modal-icon.act-a { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .modal-icon.act-c { background: linear-gradient(135deg, #10b981, #047857); }
+        .modal-icon.act-t { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3d6f, #2c5aa0);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .copyright-notice {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        footer i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-note {
+            margin-top: 0.75rem;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+        .mb-4 { margin-bottom: 4rem; }
+
+/* Hero TASIS logo hover effect */
+.hero a img {
+    height: 60px;
+    transition: transform 0.25s ease;
+}
+
+.hero a:hover img {
+    transform: scale(1.25); /* 60px → ~75px */
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">
+                <span style="display:inline-flex;gap:4px;vertical-align:middle;"><span style="width:10px;height:10px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:10px;height:10px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:10px;height:10px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:10px;height:10px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:10px;height:10px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:10px;height:10px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:10px;height:10px;border-radius:50%;background:#8625eb;display:inline-block;"></span></span>RESPOND
+            </a>
+            <ul class="nav-links">
+                <li><a href="#steps"><i class="fas fa-list-ol"></i> The 7 Steps</a></li>
+                <li><a href="#act"><i class="fas fa-brain"></i> ACT Foundation</a></li>
+                <li><a href="#culture"><i class="fas fa-globe"></i> Cultural Competence</a></li>
+                <li><a href="#ask"><i class="fa-solid fa-reply"></i> Ask</a></li>
+                <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="#blog"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+                <li><a href="#framework"><i class="fas fa-sitemap"></i> Framework</a></li>
+                <li><a href="https://sites.google.com/view/scenario-coercive-behaviour/scenario-coercive-behaviour" target="_blank"><i class="fas fa-scroll"></i> Sample Script</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main>
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+
+      <h1>
+        <span style="display:inline-flex;gap:6px;margin-right:12px;vertical-align:middle;"></span>
+        RESPOND Safeguarding Framework
+      </h1>
+
+      <!-- Text + logo on one line -->
+<p style="display:flex;align-items:center;gap:10px;justify-content:center;">
+  <span>Part of TASIS England</span>
+  <a href="https://www.tasisengland.org" target="_blank" rel="noopener">
+    <img
+      src="https://github.com/Daddymac1969/summer-program-photos/blob/main/2.%20LowRes_DigitalUse_TransparentBackground.png?raw=true"
+      alt="TASIS England"
+      style="height:60px;width:auto;display:block;"
+    >
+  </a>
+</p>
+
+      <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span>
+      </div>
+
+      <p>
+        RESPOND bridges the implementation gap between knowing what to do (policy) and how to do it (practice). It equips staff and students to act as trauma-informed, context-aware active bystanders — translating statutory duties into navigable, compassionate responses in real time.
+      </p>
+
+      <div class="hero-image">
+        <img
+          src="https://github.com/Daddymac1969/respond/blob/main/RESPOND%20Concept%20copyrighted%20(1).png?raw=true"
+          alt="RESPOND Workflow"
+        >
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+        <!-- The 7 Steps -->
+<section id="steps" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2><i class="fas fa-route"></i> The Seven Steps</h2>
+            <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;"><span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span></div>
+            <p>Click each step to explore the detailed guidance</p>
+        </div>
+
+                <!-- Row 1: R, E, S -->
+                <div class="steps-row-1">
+                    <!-- R - Recognise -->
+                    <div class="step-card" onclick="openModal('modal-r')">
+                        <div class="step-header">
+                            <div class="step-icon step-1">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="step-info">
+                                <div class="step-title">Recognise</div>
+                                <div class="step-subtitle">Identify the concern</div>
+                            </div>
+                            <i class="fas fa-external-link-alt expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- E - Engage -->
+                    <div class="step-card" onclick="openModal('modal-e')">
+                        <div class="step-header">
+                            <div class="step-icon step-2">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="step-info">
+                                <div class="step-title">Engage</div>
+                                <div class="step-subtitle">Communicate effectively</div>
+                            </div>
+                            <i class="fas fa-external-link-alt expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- S - Support -->
+                    <div class="step-card" onclick="openModal('modal-s')">
+                        <div class="step-header">
+                            <div class="step-icon step-3">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div class="step-info">
+                                <div class="step-title">Support</div>
+                                <div class="step-subtitle">Maintain composure</div>
+                            </div>
+                            <i class="fas fa-external-link-alt expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: P, O, N, D -->
+                <div class="steps-row-2">
+                    <!-- P - Pause -->
+                    <div class="step-card" onclick="openModal('modal-p')">
+                        <div class="step-header">
+                            <div class="step-icon step-4">
+                                <i class="fas fa-pause"></i>
+                            </div>
+                            <div class="step-info">
+                                <div class="step-title">Pause</div>
+                                <div class="step-subtitle">Consider your approach</div>
+                            </div>
+                            <i class="fas fa-external-link-alt expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- O - Offer -->
+                    <div class="step-card" onclick="openModal('modal-o')">
+                        <div class="step-header">
+                            <div class="step-icon step-5">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="step-info">
+                                <div class="step-title">Offer</div>
+                                <div class="step-subtitle">Model alternatives</div>
+                            </div>
+                            <i class="fas fa-external-link-alt expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- N - Notify -->
+                    <div class="step-card" onclick="openModal('modal-n')">
+                        <div class="step-header">
+                            <div class="step-icon step-6">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <div class="step-info">
+                                <div class="step-title">Notify</div>
+                                <div class="step-subtitle">Report the issue</div>
+                            </div>
+                            <i class="fas fa-external-link-alt expand-icon"></i>
+                        </div>
+                    </div>
+
+                    <!-- D - Document -->
+                    <div class="step-card" onclick="openModal('modal-d')">
+                        <div class="step-header">
+                            <div class="step-icon step-7">
+                                <i class="fa-solid fa-clipboard-list"></i>
+                            </div>
+                            <div class="step-info">
+                                <div class="step-title">Document</div>
+                                <div class="step-subtitle">Record observations</div>
+                            </div>
+                            <i class="fas fa-external-link-alt expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACT Foundation -->
+        <section id="act" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-brain"></i> The ACT Foundation</h2>
+            <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;"><span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span></div>
+                    <p>The professional mindset that powers RESPOND</p>
+                </div>
+
+                <div class="framework-grid">
+                    <div class="framework-card" onclick="openModal('modal-act-a')">
+                        <div class="framework-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Active Intervention</h3>
+                        <p>Inaction is not neutral. Move from passive observation to safe, proportionate action.</p>
+                        <button class="expand-btn">
+                            <i class="fas fa-external-link-alt"></i> Learn more
+                        </button>
+                    </div>
+
+                    <div class="framework-card" onclick="openModal('modal-act-c')">
+                        <div class="framework-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Contextual Safeguarding</h3>
+                        <p>Harm occurs beyond families — in peer groups, online, and communities. Consider the full picture.</p>
+                        <button class="expand-btn">
+                            <i class="fas fa-external-link-alt"></i> Learn more
+                        </button>
+                    </div>
+
+                    <div class="framework-card" onclick="openModal('modal-act-t')">
+                        <div class="framework-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Trauma-Informed Practice</h3>
+                        <p>Trauma alters memory and behaviour. Respond with safety, dignity, and compassion.</p>
+                        <button class="expand-btn">
+                            <i class="fas fa-external-link-alt"></i> Learn more
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Competence -->
+        <section id="culture" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-globe-americas"></i> Cultural Competence & Inclusion</h2>
+            <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;"><span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span></div>
+                    <p>Responding with awareness across cultures and identities</p>
+                </div>
+
+                <p class="intro-text">In diverse school communities, cultural background shapes how children experience harm, express distress, and engage with support. Effective safeguarding requires us to move beyond assumptions and respond with genuine curiosity and respect.</p>
+
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <h4><i class="fas fa-comments"></i> Communication Styles</h4>
+                        <p><strong>High-context cultures</strong> communicate indirectly — meaning through tone and silence. <strong>Low-context cultures</strong> are explicit and direct. Neither is better; both require attentive listening.</p>
+                    </div>
+
+                    <div class="culture-card">
+                        <h4><i class="fas fa-user-shield"></i> Power Distance</h4>
+                        <p>Some children defer to authority and find it difficult to disclose concerns about adults. Create multiple pathways for reporting and reassure children that speaking up is safe.</p>
+                    </div>
+
+                    <div class="culture-card">
+                        <h4><i class="fas fa-users"></i> Collectivist vs Individualist</h4>
+                        <p>In collectivist cultures, family honour may influence disclosure. Children may fear bringing shame. Acknowledge these pressures while centring the child's safety.</p>
+                    </div>
+
+                    <div class="culture-card">
+                        <h4><i class="fas fa-fingerprint"></i> Identity & Intersectionality</h4>
+                        <p>Experience is shaped by culture, gender, sexuality, disability. LGBTQ+ students, students with SEND, and minority students may face unique barriers to disclosure.</p>
+                    </div>
+                </div>
+
+                <div class="inclusion-card" onclick="openModal('modal-equality')">
+                    <div class="inclusion-card-content">
+                        <div class="inclusion-card-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <div class="inclusion-card-text">
+                            <h4>The Equality Act 2010 & Safeguarding</h4>
+                            <p>Understanding protected characteristics and which children face heightened safeguarding risks</p>
+                        </div>
+                        <i class="fas fa-external-link-alt inclusion-card-arrow"></i>
+                    </div>
+                </div>
+
+                <div class="balance-box">
+                    <p><i class="fas fa-balance-scale"></i> <strong>The balance:</strong> Cultural sensitivity must never override child protection. Harm is harm regardless of context. But <em>how</em> we respond can be adapted to build trust.</p>
+                </div>
+            </div>
+        </section>
+
+<!-- Ask RESPOND Section -->
+        <section id="ask" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-reply"></i> Ask RESPOND</h2>
+                    <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;">
+                        <span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span>
+                        <span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span>
+                        <span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span>
+                        <span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span>
+                        <span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span>
+                        <span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span>
+                        <span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span>
+                    </div>
+                    <p>AI-powered guidance based on RESPOND principles and safeguarding best practice</p>
+                </div>
+                <div class="ask-container" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:2rem;max-width:900px;margin:0 auto;">
+                    
+                    <!-- Ask RESPOND Practitioner - Navy -->
+                    <div class="ask-card" style="background:#355385;border:none;color:white;display:flex;flex-direction:column;">
+                        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:1rem;">
+                            <span style="font-weight:700;font-size:1.1rem;color:white;">Ask RESPOND Practitioner</span>
+                            <div style="display:flex;gap:4px;">
+                                <span style="width:8px;height:8px;border-radius:50%;background:#24437b;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#235e4b;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#a4684e;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#cd372b;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#ebaf24;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#287bc9;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#8625eb;display:inline-block;"></span>
+                            </div>
+                        </div>
+                        <div class="ask-card-icon" style="background:#4a6a9a;border:2px solid rgba(255,255,255,0.3);">
+                            <i class="fas fa-user-shield" style="color:white;"></i>
+                        </div>
+                        <span style="display:inline-block;background:#4a6a9a;color:white;padding:0.3rem 0.8rem;border-radius:15px;font-size:0.8rem;font-weight:600;margin-bottom:1rem;align-self:center;">FOR ALL STAFF</span>
+                        <h3 style="color:white;min-height:2.5em;">Need safeguarding guidance?</h3>
+                        <p style="color:#dae0e9;flex:1;">Ask RESPOND Practitioner provides practical, step-by-step support based on the RESPOND framework, KCSIE 2025, and safeguarding best practice. Get real-time guidance on how to recognise, engage, and support a young person.</p>
+                        <div style="margin-top:auto;">
+                            <a href="https://ask-respond.netlify.app/" target="_blank" class="ask-link-button" style="background:#4a6a9a;color:white;border:2px solid rgba(255,255,255,0.3);transition:all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 20px rgba(255,255,255,0.6)';this.style.background='#5a7aaa';" onmouseout="this.style.boxShadow='none';this.style.background='#4a6a9a';">
+                                <i class="fas fa-external-link-alt"></i> Launch Ask RESPOND Practitioner
+                            </a>
+                            <p class="ask-disclaimer" style="color:#dae0e9;">Responses are for guidance only — always share safeguarding concerns with your DSL, never work in isolation.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ask RESPOND Professional - Slate -->
+                    <div class="ask-card" style="background:#374351;border:none;color:white;display:flex;flex-direction:column;">
+                        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:1rem;">
+                            <span style="font-weight:700;font-size:1.1rem;color:white;">Ask RESPOND Professional</span>
+                            <div style="display:flex;gap:4px;">
+                                <span style="width:8px;height:8px;border-radius:50%;background:#24437b;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#235e4b;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#a4684e;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#cd372b;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#ebaf24;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#287bc9;display:inline-block;"></span>
+                                <span style="width:8px;height:8px;border-radius:50%;background:#8625eb;display:inline-block;"></span>
+                            </div>
+                        </div>
+                        <div class="ask-card-icon" style="background:#485561;border:2px solid rgba(255,255,255,0.3);">
+                            <i class="fas fa-clipboard-check" style="color:white;"></i>
+                        </div>
+                        <span style="display:inline-block;background:#485561;color:white;padding:0.3rem 0.8rem;border-radius:15px;font-size:0.8rem;font-weight:600;margin-bottom:1rem;align-self:center;">FOR DSLs & SAFEGUARDING LEADS</span>
+                        <h3 style="color:white;min-height:2.5em;">Complex case<br>consultation</h3>
+                        <p style="color:#dae0e9;flex:1;">Ask RESPOND Professional offers peer-level decision support for threshold decisions, multi-agency coordination, statutory compliance queries, and complex case management. Designed for experienced safeguarding professionals.</p>
+                        <div style="margin-top:auto;">
+                            <a href="https://ask-respond-pro.netlify.app/" target="_blank" class="ask-link-button" style="background:#485561;color:white;border:2px solid rgba(255,255,255,0.3);transition:all 0.3s ease;" onmouseover="this.style.boxShadow='0 0 20px rgba(255,255,255,0.6)';this.style.background='#5a6a7a';" onmouseout="this.style.boxShadow='none';this.style.background='#485561';">
+                                <i class="fas fa-external-link-alt"></i> Launch Ask RESPOND Professional
+                            </a>
+                            <p class="ask-disclaimer" style="color:#dae0e9;">Responses are for guidance only — always consult your safeguarding supervisor, never work in isolation.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+            <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;"><span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span></div>
+                    <p>Common questions from staff about using RESPOND</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-sync-alt faq-icon"></i>
+                            <span>Do I have to follow RESPOND in order?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No — RESPOND is <strong>cyclical, not linear</strong>. In real situations, you might jump between steps, revisit earlier ones, or skip steps entirely depending on the context. For example, you might Recognise, then Pause, then go back to Engage. The framework is a guide, not a rigid checklist.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-users faq-icon"></i>
+                            <span>Is RESPOND for me individually or my team?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Both. RESPOND guides <strong>your individual response</strong> in the moment — what you see, say, and do. But safeguarding is always collective. Once you Notify, the DSL and wider team take over. You're not expected to complete every step alone.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-brain faq-icon"></i>
+                            <span>What if I can't remember all seven steps?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You don't need to recall every step perfectly. The most important things are: <strong>notice something</strong> (Recognise), <strong>listen without leading</strong> (Engage), <strong>tell the DSL</strong> (Notify), and <strong>write it down</strong> (Document). If you do those four, you've done your job well.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-laptop faq-icon"></i>
+                            <span>When do I use our Safeguarding Reporting System — is that at Engage or Document?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The reporting system is for <strong>Document</strong> (and sometimes Notify). <strong>Engage</strong> is what you do in the moment — listening, asking open questions, being present. Recording on the reporting system comes after, when you're recording what happened. Don't worry about logging while a child is talking to you.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-chalkboard-teacher faq-icon"></i>
+                            <span>As a teacher, won't I just hand this to the DSL?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Often, yes — and that's exactly right. Your role is typically Recognise → Engage → Support → Notify → Document. The DSL then leads on assessment and referral. But RESPOND helps you handle those crucial first moments well, which can make all the difference to a child.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-child faq-icon"></i>
+                            <span>Does RESPOND work for younger children (Pre-K/Early Years)?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, though you'll adapt it. With younger children, <strong>Recognise</strong> relies more on behavioural observation than verbal disclosure. <strong>Engage</strong> might mean play-based interaction rather than direct questioning. The principles remain the same — notice, listen, support, share, record.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-exclamation-triangle faq-icon"></i>
+                            <span>What if I'm in a crisis and can't think clearly?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>That's normal. In urgent situations: <strong>ensure safety first</strong>, then <strong>get help</strong> (Notify). You can work through the other steps afterwards. RESPOND is designed to build confidence through practice — the more you use it, the more natural it becomes.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-card" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            <i class="fas fa-list-ol faq-icon"></i>
+                            <span>Why not use simpler models like the 4 Rs?</span>
+                            <i class="fas fa-chevron-down faq-chevron"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>RESPOND adds crucial steps that the 4 Rs miss: <strong>Support</strong> (being a calm presence), <strong>Pause</strong> (thinking before acting), and <strong>Offer</strong> (explaining next steps to the child). These steps are where staff often feel most uncertain — and where trauma-informed practice matters most.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- ============================================
+     BLOG SECTION - Insert BEFORE the Framework section
+     Find: <section id="framework" 
+     Paste this entire block ABOVE that line
+     ============================================ -->
+
+<!-- Blog Section -->
+<section id="blog" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2><i class="fas fa-pen-fancy"></i> Insights & Thought Leadership</h2>
+            <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;"><span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span></div>
+            <p>Perspectives on safeguarding practice and leadership</p>
+        </div>
+
+        <!-- Blog Post: RESPOND:PM -->
+        <div id="respond-pm" class="blog-post" style="background: white; border-radius: 16px; border: 1px solid #f0f0f0; overflow: hidden; max-width: 900px; margin: 0 auto;">
+            
+            <!-- Blog Header -->
+            <div style="background: linear-gradient(135deg, #1e3d6f, #2c5aa0); padding: 2rem 2.5rem; color: white;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
+                    <span style="width:10px;height:10px;border-radius:50%;background:#24437b;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#235e4b;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#a4684e;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#cd372b;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#ebaf24;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#287bc9;display:inline-block;"></span>
+                    <span style="width:10px;height:10px;border-radius:50%;background:#8625eb;display:inline-block;"></span>
+                    <span style="font-weight: 700; font-size: 1.1rem; margin-left: 8px;">RESPOND:PM</span>
+                </div>
+                <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.3;">What Safeguarding Can Learn from Mature Project Management Methodologies</h3>
+                <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 1rem; color: #f59e0b; font-weight: 600;">Positioning DSLs as Safeguarding Programme Leaders</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;"><strong>Darren Singh-MacPherson</strong> · Director of Inclusion, Wellbeing & Compliance - TASIS England; Co-Founder of RESPOND Safeguarding</p>
+            </div>
+            
+            <!-- Blog Content -->
+            <div style="padding: 2.5rem;">
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;"><strong style="color: #1e3d6f;">I've spent my career in both worlds.</strong> As a qualified Social Worker, I've sat with families in crisis, made safeguarding decisions under pressure, and navigated the emotional complexity of child protection. As a Project Manager, I've seen how structured methodologies transform chaotic work into manageable, accountable processes. That dual perspective keeps showing me the same gap.</p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;">A project manager has PRINCE2. A software team has Agile. A paramedic has triage protocols and decision frameworks. A DSL managing multiple child protection cases, coordinating agencies, making time-pressured escalation decisions, maintaining defensible documentation? <strong style="color: #1e3d6f;">No equivalent methodology.</strong></p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;">We've accepted that DSLs should navigate one of the most consequential domains of professional practice—where the stakes are children's safety—with less structured support than someone building a website.</p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; color: #d97706; font-weight: 700; margin-bottom: 1.25rem;">The gap isn't knowledge. It's implementation architecture.</p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;">After decades of serious case reviews, the findings are consistent: professionals knew the policies but didn't execute under pressure. Victoria Climbié. Daniel Pelka. Baby P. Sara Sharif. Signs were seen, concerns documented, and the system still failed. Not because people didn't care. Because individual judgement—unsupported by structured workflow—can buckle under cognitive load.</p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 0.75rem;">Disciplines dealing with complexity and high consequences don't rely on individual heroism. They build:</p>
+                
+                <ul style="margin: 0 0 1.25rem 1.5rem; color: #374151; font-size: 1.05rem; line-height: 1.8;">
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #f59e0b; font-weight: bold;">→</span> Decision architecture that reduces cognitive load</li>
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #f59e0b; font-weight: bold;">→</span> Escalation frameworks with clear gates</li>
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #f59e0b; font-weight: bold;">→</span> Risk registers that make patterns visible</li>
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #f59e0b; font-weight: bold;">→</span> Retrospective analysis that captures learning</li>
+                </ul>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;">Why hasn't safeguarding adopted similar rigour?</p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;"><strong style="color: #1e3d6f;">I think we've confused structure with bureaucracy.</strong> The fear is that structured approaches make safeguarding mechanical—that we lose the relational heart of the work. That's a false dichotomy.</p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; color: #d97706; font-weight: 700; margin-bottom: 1.25rem;">Structure doesn't replace professional judgement. It supports it.</p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;">A pilot doesn't make worse decisions following a checklist. They make better ones—cognitive resources freed for judgement calls that actually require them.</p>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 0.75rem;"><strong style="color: #1e3d6f;">What if we positioned DSLs as Safeguarding Programme Leaders?</strong> Not reactive case managers, but:</p>
+                
+                <ul style="margin: 0 0 1.25rem 1.5rem; color: #374151; font-size: 1.05rem; line-height: 1.8;">
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #166534; font-weight: bold;">✓</span> Portfolio oversight across live workstreams</li>
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #166534; font-weight: bold;">✓</span> Risk governance with structured escalation gates</li>
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #166534; font-weight: bold;">✓</span> Stakeholder coordination with defined protocols</li>
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #166534; font-weight: bold;">✓</span> Workflow control from recognition to resolution</li>
+                    <li style="margin-bottom: 0.5rem;"><span style="color: #166534; font-weight: bold;">✓</span> Reflective improvement through systematic learning</li>
+                </ul>
+                
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.25rem;">This is <strong style="color: #d97706;">RESPOND:PM</strong>—safeguarding programme management methodology for adaptive human systems. Not PRINCE2 transplanted into schools. Traditional PM assumes controlled environments. But methodology bringing programme management rigour while respecting that cases reopen, risk evolves, and relationships matter.</p>
+                
+                <!-- Callout Box -->
+                <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1.25rem 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0;">
+                    <p style="font-style: italic; color: #1e3d6f; font-size: 1.05rem; margin: 0;">If we wouldn't let someone manage a multi-million pound project without structured methodology, why accept less for professionals protecting children?</p>
+                </div>
+                
+                <p style="font-size: 1.2rem; font-weight: 700; color: #1e3d6f; text-align: center; margin-top: 1.5rem;">It's time we equipped DSLs accordingly.</p>
+            </div>
+            
+            <!-- Share/Download -->
+            <div style="background: #f8f9fa; padding: 1.5rem 2.5rem; border-top: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div style="font-size: 0.9rem; color: #6b7280;">
+                    <i class="fas fa-calendar-alt"></i> February 2026 · <i class="fas fa-tag" style="margin-left: 0.5rem;"></i> Safeguarding Leadership, RESPOND:PM
+                </div>
+                <div style="display: flex; gap: 0.75rem;">
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://respondframework.com/#respond-pm" target="_blank" style="background: #0077b5; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500;"><i class="fab fa-linkedin"></i> Share</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     ALSO ADD TO NAV - Find the nav-links <ul> and add:
+     <li><a href="#blog"><i class="fas fa-pen-fancy"></i> Blog</a></li>
+     ============================================ -->
+
+        <!-- Framework -->
+        <section id="framework" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-layer-group"></i> How It All Fits Together</h2>
+            <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;"><span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span></div>
+                    <p>The RESPOND Safeguarding Framework</p>
+                </div>
+
+                <div class="framework-visual">
+                    <div class="framework-image-container">
+                        <!-- Expanding Rings -->
+                        <div class="pc-circle-large"></div>
+                        <div class="pc-circle-large-2"></div>
+                        <div class="pc-circle-large-3"></div>
+                        
+                        <div class="framework-image">
+                            <img src="https://github.com/Daddymac1969/respond/blob/main/PC%20Respond.png?raw=true" alt="RESPOND Safeguarding Framework with Protective Capacity">
+                        </div>
+                    </div>
+
+                    <div class="pc-box">
+                        <h3><i class="fas fa-shield-alt"></i> Protective Capacity®</h3>
+                        <p>When everyone shares this framework, your collective ability to safeguard children multiplies.</p>
+                        <div class="pc-equation">1 × 1 × 1 × 1 = ∞</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODALS -->
+    
+    <!-- R - Recognise Modal -->
+    <div id="modal-r" class="modal" onclick="closeModal('modal-r')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-r')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon step-1"><i class="fas fa-eye"></i></div>
+                <div class="modal-title">
+                    <h3>R — Recognise</h3>
+                    <p>Identify the concern</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Notice physical, emotional, behavioural, and contextual cues. Trust your instincts — you don't need certainty to act.</p>
+                
+                <h4><i class="fas fa-search"></i> The 4 Ps — Context Scan</h4>
+                <ul>
+                    <li><strong>People:</strong> Who is involved? Power dynamics?</li>
+                    <li><strong>Places:</strong> Where is it happening?</li>
+                    <li><strong>Platforms:</strong> Digital element?</li>
+                    <li><strong>Patterns:</strong> One-off or recurring?</li>
+                </ul>
+                
+                <h4><i class="fas fa-exclamation-circle"></i> Key Indicators</h4>
+                <ul>
+                    <li><strong>Physical:</strong> Unexplained injuries, poor hygiene</li>
+                    <li><strong>Behavioural:</strong> Sudden mood changes, withdrawal</li>
+                    <li><strong>Emotional:</strong> Anxiety, fearfulness</li>
+                    <li><strong>Contextual:</strong> Avoiding places, new possessions</li>
+                </ul>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Professional curiosity:</strong> Ask "What might explain this?" Don't accept the first plausible explanation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- E - Engage Modal -->
+    <div id="modal-e" class="modal" onclick="closeModal('modal-e')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-e')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon step-2"><i class="fas fa-comments"></i></div>
+                <div class="modal-title">
+                    <h3>E — Engage</h3>
+                    <p>Communicate effectively</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Respond with calm, compassionate listening. Create felt safety. Your first response shapes whether they continue to share.</p>
+                
+                <h4><i class="fas fa-microphone"></i> The TED Approach</h4>
+                <ul>
+                    <li><strong>Tell me...</strong> what happened</li>
+                    <li><strong>Explain...</strong> what you mean</li>
+                    <li><strong>Describe...</strong> what that felt like</li>
+                </ul>
+                
+                <h4><i class="fas fa-comment-dots"></i> Helpful Phrases</h4>
+                <ul>
+                    <li>"Thank you for trusting me with this"</li>
+                    <li>"I'm listening — take your time"</li>
+                    <li>"This isn't your fault"</li>
+                </ul>
+                
+                <div class="modal-warning">
+                    <p><i class="fas fa-ban"></i> <strong>Avoid:</strong> Leading questions, expressing shock, promising confidentiality you can't keep.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- S - Support Modal -->
+    <div id="modal-s" class="modal" onclick="closeModal('modal-s')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-s')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon step-3"><i class="fas fa-hands-helping"></i></div>
+                <div class="modal-title">
+                    <h3>S — Support</h3>
+                    <p>Maintain composure</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Provide immediate, proportionate help within your role. Be a calm anchor — your regulated presence helps them regulate.</p>
+                
+                <h4><i class="fas fa-first-aid"></i> Immediate Actions</h4>
+                <ul>
+                    <li>Ensure physical safety if needed</li>
+                    <li>Provide emotional reassurance</li>
+                    <li>Stay with them if distressed</li>
+                    <li>Offer practical help (quiet space, water)</li>
+                </ul>
+                
+                <h4><i class="fas fa-heart"></i> Remember</h4>
+                <ul>
+                    <li>Your role is support, not investigation</li>
+                    <li>Don't promise outcomes you can't guarantee</li>
+                </ul>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Your calm is contagious.</strong> Children co-regulate from adults — your steady presence is therapeutic.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- P - Pause Modal -->
+    <div id="modal-p" class="modal" onclick="closeModal('modal-p')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-p')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon step-4"><i class="fas fa-pause"></i></div>
+                <div class="modal-title">
+                    <h3>P — Pause</h3>
+                    <p>Consider your approach</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Act with composure. The Pause creates space for professional judgement — it's not delay, it's deliberate thinking.</p>
+                
+                <h4><i class="fas fa-glasses"></i> The Three Lenses</h4>
+                <ul>
+                    <li><strong>Risk:</strong> What is the level of danger?</li>
+                    <li><strong>Rights:</strong> What does this child need?</li>
+                    <li><strong>Resources:</strong> Who else needs to know?</li>
+                </ul>
+                
+                <h4><i class="fas fa-traffic-light"></i> Quick Decision Guide</h4>
+                <ul>
+                    <li><strong>Immediate danger?</strong> → Call 999</li>
+                    <li><strong>Serious but not immediate?</strong> → DSL same day</li>
+                    <li><strong>Concern worth noting?</strong> → Document and monitor</li>
+                </ul>
+                
+                <div class="modal-warning">
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>The danger of no pause:</strong> Snap judgments led to failures in Rochdale, Rotherham, and Cleveland.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- O - Offer Modal -->
+    <div id="modal-o" class="modal" onclick="closeModal('modal-o')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-o')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon step-5"><i class="fas fa-lightbulb"></i></div>
+                <div class="modal-title">
+                    <h3>O — Offer</h3>
+                    <p>Model alternatives</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Explain what happens next. Offer agency where possible. Be honest about what you can and can't promise.</p>
+                
+                <h4><i class="fas fa-gift"></i> What You Can Offer</h4>
+                <ul>
+                    <li>Clear explanation of next steps</li>
+                    <li>Reassurance they did the right thing</li>
+                    <li>Continued support and availability</li>
+                    <li>Choices where appropriate</li>
+                </ul>
+                
+                <h4><i class="fas fa-quote-left"></i> How to Frame It</h4>
+                <ul>
+                    <li>"I need to share this with our safeguarding lead"</li>
+                    <li>"You won't be in trouble for telling me"</li>
+                </ul>
+                
+                <div class="modal-warning">
+                    <p><i class="fas fa-ban"></i> <strong>Never promise:</strong> Confidentiality, specific outcomes, that nothing will change.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- N - Notify Modal -->
+    <div id="modal-n" class="modal" onclick="closeModal('modal-n')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-n')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon step-6"><i class="fas fa-bullhorn"></i></div>
+                <div class="modal-title">
+                    <h3>N — Notify</h3>
+                    <p>Report the issue</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Share concerns with the right people. Your duty is to pass on — not to investigate or determine if abuse occurred.</p>
+                
+                <h4><i class="fas fa-user-shield"></i> Who to Notify</h4>
+                <ul>
+                    <li><strong>First:</strong> Your DSL</li>
+                    <li><strong>If unavailable:</strong> Deputy DSL</li>
+                    <li><strong>Immediate danger:</strong> Call 999</li>
+                </ul>
+                
+                <h4><i class="fas fa-clock"></i> Timing</h4>
+                <ul>
+                    <li><strong>Immediate:</strong> Disclosure, risk, allegation against staff</li>
+                    <li><strong>Same day:</strong> Significant concern</li>
+                    <li><strong>ASAP:</strong> Low-level concerns, patterns</li>
+                </ul>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-lightbulb"></i> <strong>You don't need certainty</strong> — you need to share your concern. Let the DSL assess.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- D - Document Modal -->
+    <div id="modal-d" class="modal" onclick="closeModal('modal-d')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-d')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon step-7"><i class="fas fa-file-alt"></i></div>
+                <div class="modal-title">
+                    <h3>D — Document</h3>
+                    <p>Record observations</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Record factually and promptly. Good documentation protects the child, protects you, and ensures continuity.</p>
+                
+                <h4><i class="fas fa-medal"></i> The GOLD Standard</h4>
+                <ul>
+                    <li><strong>G — Ground:</strong> Date, time, location, who was present</li>
+                    <li><strong>O — Objective:</strong> Facts only — what you saw/heard</li>
+                    <li><strong>L — Language:</strong> Child's exact words in quotes</li>
+                    <li><strong>D — Dated:</strong> Signed and recorded ASAP</li>
+                </ul>
+                
+                <div class="modal-warning">
+                    <p><i class="fas fa-ban"></i> <strong>Avoid:</strong> Opinions, assumptions, diagnostic language, judgements about parents.</p>
+                </div>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-pen"></i> <strong>"If it's not written down, it didn't happen."</strong> Record within the hour. Use your reporting system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Equality Act Modal -->
+    <div id="modal-equality" class="modal" onclick="closeModal('modal-equality')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-equality')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon act-c"><i class="fas fa-gavel"></i></div>
+                <div class="modal-title">
+                    <h3>The Equality Act 2010 & Safeguarding</h3>
+                    <p>Protected characteristics and vulnerable groups</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">The Equality Act protects nine characteristics from discrimination. Research shows children with certain characteristics face <strong>heightened safeguarding risks</strong> and may be less likely to disclose or be believed.</p>
+                
+                <h4><i class="fas fa-exclamation-triangle"></i> Groups at Heightened Risk</h4>
+                <ul>
+                    <li><strong>Children with SEND/disabilities</strong> — 3x more likely to experience abuse; communication barriers may mask disclosure</li>
+                    <li><strong>LGBTQ+ young people</strong> — higher rates of bullying, family rejection, and mental health concerns</li>
+                    <li><strong>Children from minority ethnic backgrounds</strong> — may face racism, honour-based abuse, or cultural barriers to disclosure</li>
+                    <li><strong>Looked-after children & care leavers</strong> — often "invisible" across placement changes</li>
+                    <li><strong>Young carers</strong> — hidden responsibilities may mask neglect or prevent help-seeking</li>
+                    <li><strong>Children with mental health needs</strong> — disclosures may be dismissed as symptomatic</li>
+                </ul>
+                
+                <h4><i class="fas fa-list"></i> The Nine Protected Characteristics</h4>
+                <ul>
+                    <li>Age</li>
+                    <li>Disability</li>
+                    <li>Gender reassignment</li>
+                    <li>Marriage and civil partnership</li>
+                    <li>Pregnancy and maternity</li>
+                    <li>Race</li>
+                    <li>Religion or belief</li>
+                    <li>Sex</li>
+                    <li>Sexual orientation</li>
+                </ul>
+                
+                <div class="modal-warning">
+                    <p><i class="fas fa-eye"></i> <strong>The "invisible" child:</strong> Some children fall through gaps — those who move frequently, are electively home educated, excluded, or whose families avoid services. Professional curiosity means asking: "Who might we be missing?"</p>
+                </div>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Public Sector Equality Duty:</strong> Schools must eliminate discrimination, promote equality of opportunity, and foster good relations. This includes making reasonable adjustments for disabled children.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACT - Active Intervention Modal -->
+    <div id="modal-act-a" class="modal" onclick="closeModal('modal-act-a')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-act-a')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon act-a"><i class="fas fa-running"></i></div>
+                <div class="modal-title">
+                    <h3>Active Intervention</h3>
+                    <p>The 'A' in ACT</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Inaction is not neutral. Move from passive observation to safe, proportionate action. Every professional has a duty to intervene when they see harm.</p>
+                
+                <h4><i class="fas fa-arrow-up"></i> Bystander to Upstander</h4>
+                <ul>
+                    <li><strong>Awareness</strong> — recognise the situation</li>
+                    <li><strong>Responsibility</strong> — accept your duty to act</li>
+                    <li><strong>Knowledge</strong> — know how to help</li>
+                    <li><strong>Skills</strong> — intervene safely</li>
+                    <li><strong>Confidence</strong> — believe your action matters</li>
+                </ul>
+                
+                <h4><i class="fas fa-hand-paper"></i> The 5 D's of Safe Intervention</h4>
+                <ul>
+                    <li><strong>Direct</strong> — Address the situation directly</li>
+                    <li><strong>Distract</strong> — Create a diversion</li>
+                    <li><strong>Delegate</strong> — Get help from others</li>
+                    <li><strong>Document</strong> — Record what you see</li>
+                    <li><strong>Delay</strong> — Check in afterwards</li>
+                </ul>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Remember:</strong> You don't have to solve everything. Taking any action is better than doing nothing.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACT - Contextual Safeguarding Modal -->
+    <div id="modal-act-c" class="modal" onclick="closeModal('modal-act-c')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-act-c')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon act-c"><i class="fas fa-map-marked-alt"></i></div>
+                <div class="modal-title">
+                    <h3>Contextual Safeguarding</h3>
+                    <p>The 'C' in ACT</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Harm occurs beyond families — in peer groups, online spaces, and communities. Traditional safeguarding focuses on the home; contextual safeguarding considers the full picture.</p>
+                
+                <h4><i class="fas fa-building"></i> Extra-Familial Contexts</h4>
+                <ul>
+                    <li>Peer groups and relationships</li>
+                    <li>School spaces (corridors, toilets, transport)</li>
+                    <li>Online platforms and gaming</li>
+                    <li>Community locations (parks, shops)</li>
+                    <li>Boarding house environments</li>
+                </ul>
+                
+                <h4><i class="fas fa-search-location"></i> The 4 Ps Framework</h4>
+                <ul>
+                    <li><strong>People</strong> — Who is involved? Who has influence?</li>
+                    <li><strong>Places</strong> — Where does harm occur?</li>
+                    <li><strong>Platforms</strong> — What digital spaces are involved?</li>
+                    <li><strong>Patterns</strong> — Is this one-off or recurring?</li>
+                </ul>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Key insight:</strong> Sometimes the safest intervention is changing the context, not just supporting the child.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACT - Trauma-Informed Practice Modal -->
+    <div id="modal-act-t" class="modal" onclick="closeModal('modal-act-t')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeModal('modal-act-t')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-icon act-t"><i class="fas fa-heart"></i></div>
+                <div class="modal-title">
+                    <h3>Trauma-Informed Practice</h3>
+                    <p>The 'T' in ACT</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="description">Trauma alters how children think, feel, and behave. A trauma-informed approach responds with safety, dignity, and compassion — never re-traumatising.</p>
+                
+                <h4><i class="fas fa-star"></i> The Six Principles (SAMHSA)</h4>
+                <ul>
+                    <li><strong>Safety</strong> — physical and emotional security</li>
+                    <li><strong>Trustworthiness</strong> — consistency and transparency</li>
+                    <li><strong>Peer support</strong> — connection with shared experience</li>
+                    <li><strong>Collaboration</strong> — working in partnership</li>
+                    <li><strong>Empowerment</strong> — building on strengths</li>
+                    <li><strong>Cultural competence</strong> — moving past bias</li>
+                </ul>
+                
+                <h4><i class="fas fa-hands"></i> In Practice</h4>
+                <ul>
+                    <li>Predictability — keep routines stable</li>
+                    <li>Choice — offer control where possible</li>
+                    <li>Connection — be present and attuned</li>
+                    <li>Compassion — respond without judgment</li>
+                    <li>Calm — your regulation helps them regulate</li>
+                </ul>
+                
+                <div class="modal-tip">
+                    <p><i class="fas fa-lightbulb"></i> <strong>Remember:</strong> Behaviour is communication. Ask "What happened to you?" not "What's wrong with you?"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+                        <div style="display:flex;gap:8px;justify-content:center;margin:12px 0;"><span style="width:12px;height:12px;border-radius:50%;background:#24437b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#235e4b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#a4684e;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#cd372b;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#ebaf24;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#287bc9;display:inline-block;"></span><span style="width:12px;height:12px;border-radius:50%;background:#8625eb;display:inline-block;"></span></div>
+            <p class="copyright-notice">The RESPOND Safeguarding Framework, associated materials and concepts are the intellectual property of RESPOND Safeguarding and TASIS England. © 2026. All rights reserved.</p>
+            <p class="footer-note"><i class="fas fa-info-circle"></i> Working together means sharing information and not working in isolation</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Set example question
+        function setQuestion(question) {
+            document.getElementById('ask-input').value = question;
+            document.getElementById('ask-input').focus();
+        }
+
+        // Embedded knowledge base
+        const knowledgeBase = [
+            {
+                keywords: ['disclosure', 'disclosed', 'told me', 'child told', 'student told', 'saying', 'said something'],
+                title: 'Responding to a Disclosure',
+                answer: `<h4><i class="fas fa-comments"></i> Engage: What to Do in the Moment</h4>
+                <ul>
+                    <li><strong>Stay calm</strong> — your regulated presence helps them feel safe</li>
+                    <li><strong>Listen actively</strong> — give them your full attention</li>
+                    <li><strong>Use TED</strong> — "Tell me...", "Explain...", "Describe..." (open questions only)</li>
+                    <li><strong>Believe them</strong> — "Thank you for telling me. I'm glad you felt you could talk to me."</li>
+                    <li><strong>Don't promise secrecy</strong> — "I need to share this with someone who can help."</li>
+                </ul>
+                <h4><i class="fas fa-ban"></i> What NOT to Do</h4>
+                <ul>
+                    <li>Don't ask leading questions or investigate</li>
+                    <li>Don't promise to keep it secret</li>
+                    <li>Don't express shock or disgust</li>
+                    <li>Don't make promises you can't keep</li>
+                </ul>
+                <h4><i class="fas fa-arrow-right"></i> Next Steps</h4>
+                <ul>
+                    <li><strong>Support:</strong> Reassure them they've done the right thing</li>
+                    <li><strong>Notify:</strong> Tell your DSL as soon as possible (same day)</li>
+                    <li><strong>Document:</strong> Write down what was said using their words (GOLD standard)</li>
+                </ul>`
+            },
+            {
+                keywords: ['secret', 'confidential', 'don\'t tell', 'keep quiet', 'promise', 'between us'],
+                title: 'Handling Requests for Secrecy',
+                answer: `<h4><i class="fas fa-lock-open"></i> You Cannot Promise Confidentiality</h4>
+                <p>When a child asks you to keep something secret, you must be honest with them. Safeguarding always overrides confidentiality.</p>
+                <h4><i class="fas fa-comment-dots"></i> What to Say</h4>
+                <ul>
+                    <li>"I'm really glad you want to talk to me, and I'll try to help."</li>
+                    <li>"I can't promise to keep secrets, because if you're not safe, I need to tell someone who can help."</li>
+                    <li>"I'll only tell people who need to know so they can help you."</li>
+                    <li>"You're not in trouble — you've done the right thing by talking to me."</li>
+                </ul>
+                <h4><i class="fas fa-lightbulb"></i> Remember</h4>
+                <p>Most children understand when you explain why you need to share. Being honest builds trust, even if it feels uncomfortable in the moment. The DSL will handle information sensitively and only share what's necessary.</p>`
+            },
+            {
+                keywords: ['document', 'record', 'write', 'cpoms', 'myconcern', 'log', 'gold', 'note'],
+                title: 'Documenting Safeguarding Concerns (GOLD Standard)',
+                answer: `<h4><i class="fas fa-medal"></i> The GOLD Standard</h4>
+                <ul>
+                    <li><strong>G - Ground:</strong> What happened? Where? When? Who was present?</li>
+                    <li><strong>O - Objective:</strong> Facts only. What you saw and heard, not what you think it means.</li>
+                    <li><strong>L - Language:</strong> Use the child's exact words in quotation marks. Avoid jargon.</li>
+                    <li><strong>D - Dated:</strong> Record date, time, and sign your entry. Do it promptly.</li>
+                </ul>
+                <h4><i class="fas fa-check-circle"></i> Good Practice</h4>
+                <ul>
+                    <li>Write: <em>"Child said: 'My arm hurts because daddy hit me'"</em></li>
+                    <li>Not: <em>"Child disclosed physical abuse by father"</em></li>
+                    <li>Record as soon as possible while details are fresh</li>
+                    <li>Include context (behaviour, demeanour, any visible marks)</li>
+                </ul>
+                <h4><i class="fas fa-exclamation-triangle"></i> Avoid</h4>
+                <ul>
+                    <li>Opinions, assumptions, or interpretations</li>
+                    <li>Jargon or abbreviations others may not understand</li>
+                    <li>Delays — write it up the same day</li>
+                </ul>
+                <p>Log your concern on your reporting system as soon as you've notified the DSL.</p>`
+            },
+            {
+                keywords: ['dsl', 'notify', 'tell', 'report', 'refer', 'pass on', 'who do i'],
+                title: 'Notifying the DSL',
+                answer: `<h4><i class="fas fa-bullhorn"></i> When to Notify</h4>
+                <p>Notify the DSL <strong>the same day</strong> if you have <strong>any</strong> safeguarding concern. You don't need certainty — you need to share.</p>
+                <h4><i class="fas fa-user-shield"></i> Who to Tell</h4>
+                <ol>
+                    <li><strong>First:</strong> Your Designated Safeguarding Lead (DSL)</li>
+                    <li><strong>If unavailable:</strong> Deputy DSL</li>
+                    <li><strong>If neither available:</strong> Headteacher or most senior person on site</li>
+                    <li><strong>In emergencies:</strong> Call 999 (you don't need permission)</li>
+                </ol>
+                <h4><i class="fas fa-info-circle"></i> What to Share</h4>
+                <ul>
+                    <li>What the child said or what you observed</li>
+                    <li>When and where it happened</li>
+                    <li>Any immediate risks</li>
+                    <li>Your concern (even if you're not sure)</li>
+                </ul>
+                <h4><i class="fas fa-lightbulb"></i> Remember</h4>
+                <p>Your role is to <strong>recognise and pass on</strong>, not to investigate. It's the DSL's job to assess and decide next steps. Working together means not working in isolation.</p>`
+            },
+            {
+                keywords: ['colleague', 'staff', 'teacher', 'adult', 'member of staff', 'professional', 'allegation', 'inappropriate'],
+                title: 'Concerns About a Colleague',
+                answer: `<h4><i class="fas fa-exclamation-triangle"></i> This is a LADO Matter</h4>
+                <p>Concerns about adults who work with children are handled differently. This includes behaviour that may have harmed a child, criminal offences, or conduct suggesting they're unsuitable to work with children.</p>
+                <h4><i class="fas fa-arrow-right"></i> What to Do</h4>
+                <ul>
+                    <li><strong>Report directly to the Headteacher</strong> (not the DSL, unless the concern is about the Head)</li>
+                    <li>If the concern is about the Headteacher, report to the Chair of Governors</li>
+                    <li>The Head/Chair must contact the Local Authority Designated Officer (LADO) within one working day</li>
+                </ul>
+                <h4><i class="fas fa-ban"></i> Do NOT</h4>
+                <ul>
+                    <li>Investigate or ask questions</li>
+                    <li>Tell the colleague about the concern</li>
+                    <li>Discuss with other staff</li>
+                    <li>Assume someone else will report it</li>
+                </ul>
+                <h4><i class="fas fa-shield-alt"></i> Whistleblowing Protection</h4>
+                <p>You are protected by law when raising genuine concerns. If you feel your concern isn't being addressed, you can contact the LADO directly or use the NSPCC whistleblowing helpline: 0800 028 0285.</p>`
+            },
+            {
+                keywords: ['support', 'calm', 'distressed', 'upset', 'crying', 'help', 'comfort', 'regulate'],
+                title: 'Supporting a Distressed Child',
+                answer: `<h4><i class="fas fa-hands-helping"></i> Be a Calm Anchor</h4>
+                <p>Children's nervous systems are highly attuned to adults. Your calm, regulated presence helps them regulate too — this is called "co-regulation."</p>
+                <h4><i class="fas fa-check-circle"></i> Practical Steps</h4>
+                <ul>
+                    <li><strong>Lower your voice and slow your movements</strong></li>
+                    <li>Get to their eye level if appropriate</li>
+                    <li>Offer simple choices: "Would you like some water?" "Shall we sit here or go somewhere quieter?"</li>
+                    <li>Use grounding techniques: "Can you tell me five things you can see?"</li>
+                    <li>Validate their feelings: "That sounds really difficult. It's okay to feel upset."</li>
+                </ul>
+                <h4><i class="fas fa-heart"></i> What to Say</h4>
+                <ul>
+                    <li>"I'm here. You're safe now."</li>
+                    <li>"Take your time. There's no rush."</li>
+                    <li>"I believe you."</li>
+                    <li>"This isn't your fault."</li>
+                    <li>"You were right to tell me."</li>
+                </ul>
+                <h4><i class="fas fa-lightbulb"></i> Remember</h4>
+                <p>Your role is to support, not to fix. Sometimes just being present and calm is the most powerful thing you can do. Let them lead the pace.</p>`
+            },
+            {
+                keywords: ['pause', 'think', 'decide', 'unsure', 'not sure', 'judgement', 'assess', 'what should i'],
+                title: 'Using the Pause Step',
+                answer: `<h4><i class="fas fa-pause"></i> Pause is Not Delay</h4>
+                <p>The Pause step creates space for professional judgement. It's about thinking clearly, not putting off action.</p>
+                <h4><i class="fas fa-glasses"></i> The Three Lenses</h4>
+                <ul>
+                    <li><strong>RISK:</strong> Is there immediate danger? Does someone need protection right now?</li>
+                    <li><strong>RIGHTS:</strong> What does this child need and deserve? What are their wishes?</li>
+                    <li><strong>RESOURCES:</strong> Who can help? What support is available?</li>
+                </ul>
+                <h4><i class="fas fa-traffic-light"></i> Quick Decision Guide</h4>
+                <ul>
+                    <li><strong>Immediate danger → 999</strong> (don't wait for anyone)</li>
+                    <li><strong>Safeguarding concern → DSL today</strong></li>
+                    <li><strong>Unsure but something feels wrong → DSL for guidance</strong></li>
+                </ul>
+                <h4><i class="fas fa-exclamation-circle"></i> The Rochdale Lesson</h4>
+                <p>The Rochdale inquiry showed how professionals seeing fragments never joined the dots. Your single observation might be the piece that completes the picture. When in doubt, share it with the DSL.</p>`
+            },
+            {
+                keywords: ['bruise', 'mark', 'injury', 'hurt', 'physical', 'sign', 'indicator', 'recognise', 'notice', 'spot'],
+                title: 'Recognising Signs of Abuse',
+                answer: `<h4><i class="fas fa-eye"></i> The 4 Ps Context Scan</h4>
+                <ul>
+                    <li><strong>People:</strong> Who is around this child? Family, friends, adults?</li>
+                    <li><strong>Places:</strong> Where does harm occur? Home, school, online, community?</li>
+                    <li><strong>Platforms:</strong> What technology or social media is involved?</li>
+                    <li><strong>Patterns:</strong> Is this a one-off or recurring? What's changing?</li>
+                </ul>
+                <h4><i class="fas fa-search"></i> Types of Indicators</h4>
+                <ul>
+                    <li><strong>Physical:</strong> Unexplained injuries, flinching, inappropriate clothing for weather</li>
+                    <li><strong>Behavioural:</strong> Sudden changes, withdrawal, aggression, regression</li>
+                    <li><strong>Emotional:</strong> Fear of certain adults/places, low self-esteem, anxiety</li>
+                    <li><strong>Contextual:</strong> New friendships with older people, unexplained money/gifts</li>
+                </ul>
+                <h4><i class="fas fa-lightbulb"></i> Professional Curiosity</h4>
+                <p>Trust your instincts. If something feels "not quite right," explore it respectfully. Ask yourself: "What might be happening for this child?" Don't wait for certainty — single signs may not mean abuse, but patterns build pictures.</p>`
+            },
+            {
+                keywords: ['online', 'internet', 'social media', 'phone', 'gaming', 'cyber', 'digital', 'sexting', 'nudes', 'image'],
+                title: 'Online Safety Concerns',
+                answer: `<h4><i class="fas fa-laptop"></i> Online Harms Are Real Harms</h4>
+                <p>Contextual Safeguarding recognises that harm occurs beyond families — including in digital spaces. Online abuse is just as serious as offline abuse.</p>
+                <h4><i class="fas fa-exclamation-triangle"></i> Key Concerns</h4>
+                <ul>
+                    <li><strong>Sharing of nudes/semi-nudes:</strong> Follow school protocol. Secure device, inform DSL immediately. Never view images unless unavoidable.</li>
+                    <li><strong>Online grooming:</strong> Building relationships online to exploit. Watch for secretive behaviour, new "friends," unexplained gifts.</li>
+                    <li><strong>Cyberbullying:</strong> Persistent targeting through digital means. Can be 24/7 and feel inescapable.</li>
+                    <li><strong>Harmful content:</strong> Exposure to violence, self-harm content, extremist material.</li>
+                </ul>
+                <h4><i class="fas fa-arrow-right"></i> What to Do</h4>
+                <ul>
+                    <li>Take it seriously — don't dismiss as "just online"</li>
+                    <li>Don't confiscate devices without DSL guidance (may be evidence)</li>
+                    <li>Don't ask the child to show you images</li>
+                    <li>Document what you know, notify DSL immediately</li>
+                </ul>`
+            },
+            {
+                keywords: ['peer', 'child on child', 'student', 'bullying', 'sexual', 'harassment', 'between children'],
+                title: 'Child-on-Child Abuse',
+                answer: `<h4><i class="fas fa-users"></i> It's Still Abuse</h4>
+                <p>Abuse by peers is just as harmful as adult abuse and must never be dismissed as "banter," "part of growing up," or "just what children do."</p>
+                <h4><i class="fas fa-list"></i> Types Include</h4>
+                <ul>
+                    <li>Bullying (including cyberbullying)</li>
+                    <li>Physical abuse</li>
+                    <li>Sexual violence and harassment</li>
+                    <li>Sexting/sharing of nudes</li>
+                    <li>Initiation/hazing rituals</li>
+                    <li>Upskirting</li>
+                </ul>
+                <h4><i class="fas fa-arrow-right"></i> Key Principles</h4>
+                <ul>
+                    <li><strong>Both children need support</strong> — the child who harmed may also be a victim</li>
+                    <li>Follow the same safeguarding process: Engage, Support, Notify, Document</li>
+                    <li>Separate the children if necessary for immediate safety</li>
+                    <li>Don't investigate or interview — that's for trained professionals</li>
+                </ul>
+                <h4><i class="fas fa-shield-alt"></i> Remember</h4>
+                <p>Creating a culture where child-on-child abuse is not tolerated means challenging inappropriate behaviour early and consistently — even "low level" incidents.</p>`
+            },
+            {
+                keywords: ['fgm', 'forced marriage', 'honour', 'cultural', 'hba', 'breast ironing', 'cutting'],
+                title: 'Honour-Based Abuse & FGM',
+                answer: `<h4><i class="fas fa-gavel"></i> Legal Duties</h4>
+                <p>FGM is illegal in the UK. Teachers have a <strong>mandatory duty</strong> to report known cases of FGM in under-18s directly to police (in addition to DSL).</p>
+                <h4><i class="fas fa-exclamation-triangle"></i> Warning Signs</h4>
+                <ul>
+                    <li>Talk of upcoming "special ceremony" or extended holiday</li>
+                    <li>Withdrawal from PE or physical activities</li>
+                    <li>Older female relative visiting from abroad</li>
+                    <li>Confiding fears about being "cut" or married</li>
+                    <li>Running away or fear of returning home</li>
+                </ul>
+                <h4><i class="fas fa-ban"></i> Critical: Do NOT</h4>
+                <ul>
+                    <li>Speak to the family before reporting — this could increase risk</li>
+                    <li>Attempt mediation or family meetings</li>
+                    <li>Delay because you're worried about cultural sensitivity</li>
+                </ul>
+                <h4><i class="fas fa-shield-alt"></i> Remember</h4>
+                <p>Cultural sensitivity must never override child protection. Harm is harm regardless of context. You can seek guidance without naming the child first if unsure.</p>`
+            },
+            {
+                keywords: ['mental health', 'self harm', 'suicide', 'anxiety', 'depression', 'eating', 'worried about themselves'],
+                title: 'Mental Health & Self-Harm',
+                answer: `<h4><i class="fas fa-heart"></i> Behaviour is Communication</h4>
+                <p>A trauma-informed approach recognises that challenging behaviour or mental health difficulties are often responses to experiences. Ask "What happened to you?" not "What's wrong with you?"</p>
+                <h4><i class="fas fa-comments"></i> If a Child Discloses Self-Harm</h4>
+                <ul>
+                    <li>Stay calm and don't show shock</li>
+                    <li>Thank them for telling you</li>
+                    <li>Don't ask to see injuries or ask detailed questions about methods</li>
+                    <li>Say: "I'm concerned about you and I want to help. I need to share this with someone who can support you."</li>
+                </ul>
+                <h4><i class="fas fa-arrow-right"></i> Next Steps</h4>
+                <ul>
+                    <li>Notify DSL immediately</li>
+                    <li>If immediate medical attention needed, follow first aid protocols</li>
+                    <li>Document what was said (not details of methods)</li>
+                    <li>Don't leave them alone if you're concerned about immediate safety</li>
+                </ul>
+                <h4><i class="fas fa-phone"></i> In Crisis</h4>
+                <p>If a child is in immediate danger: call 999. Other support: Childline 0800 1111 | Samaritans 116 123</p>`
+            },
+            {
+                keywords: ['neglect', 'hungry', 'dirty', 'clothes', 'tired', 'attendance', 'absent', 'home'],
+                title: 'Recognising Neglect',
+                answer: `<h4><i class="fas fa-eye"></i> Neglect is Often Invisible</h4>
+                <p>Neglect is the most common form of abuse but often the hardest to identify. It's the persistent failure to meet a child's basic needs.</p>
+                <h4><i class="fas fa-search"></i> Signs to Notice</h4>
+                <ul>
+                    <li><strong>Physical:</strong> Consistently hungry, poor hygiene, inadequate clothing, untreated medical needs</li>
+                    <li><strong>Emotional:</strong> Low self-esteem, seeking attention/affection from adults, anxiety</li>
+                    <li><strong>Educational:</strong> Poor attendance, frequently late, lack of equipment, tiredness</li>
+                    <li><strong>Supervision:</strong> Left alone inappropriately, in charge of younger siblings, no boundaries</li>
+                </ul>
+                <h4><i class="fas fa-lightbulb"></i> Professional Curiosity</h4>
+                <p>One sign alone doesn't confirm neglect, but patterns matter. Keep asking: "What's life like for this child?" Document observations over time. The accumulation of small concerns can reveal a bigger picture.</p>
+                <h4><i class="fas fa-arrow-right"></i> What to Do</h4>
+                <p>Share your observations with the DSL. Even if you're unsure, your piece might complete a puzzle. Neglect often escalates without intervention.</p>`
+            },
+            {
+                keywords: ['boarding', 'residential', 'house', 'night', 'pastoral'],
+                title: 'Boarding & Residential Settings',
+                answer: `<h4><i class="fas fa-home"></i> Unique Considerations</h4>
+                <p>Boarding staff are in loco parentis 24/7. This creates both opportunities to build trust and responsibilities for heightened vigilance.</p>
+                <h4><i class="fas fa-moon"></i> Key Risk Times</h4>
+                <ul>
+                    <li>Evenings and nights — when children may feel vulnerable or disclose</li>
+                    <li>Transitions — new boarders, start/end of term, after holidays</li>
+                    <li>Illness or injury — one-to-one care situations</li>
+                    <li>Peer dynamics — bullying, initiation, relationships</li>
+                </ul>
+                <h4><i class="fas fa-shield-alt"></i> Good Practice</h4>
+                <ul>
+                    <li>Know your DSL and deputy — ensure 24-hour access to safeguarding advice</li>
+                    <li>Maintain professional boundaries (especially with older students)</li>
+                    <li>Two-adult rule where possible for intimate care</li>
+                    <li>Document everything — your reporting system should be accessible</li>
+                    <li>Homesickness can mask more serious concerns — stay curious</li>
+                </ul>
+                <h4><i class="fas fa-globe"></i> International Boarders</h4>
+                <p>May face additional vulnerabilities: distance from family, cultural adjustment, visa concerns preventing disclosure. Use the C.OM.PA.S framework for culturally responsive care.</p>`
+            },
+            {
+                keywords: ['what is respond', 'respond framework', 'explain respond', 'steps', 'how does'],
+                title: 'The RESPOND Framework',
+                answer: `<h4><i class="fas fa-shield-alt"></i> RESPOND: Seven Steps</h4>
+                <p>RESPOND is a cyclical (not linear) framework for responding to safeguarding concerns:</p>
+                <ul>
+                    <li><strong>R - Recognise:</strong> Notice the signs. Use the 4 Ps (People, Places, Platforms, Patterns). Trust your instincts.</li>
+                    <li><strong>E - Engage:</strong> Listen without leading. Use TED (Tell me, Explain, Describe). Create felt safety.</li>
+                    <li><strong>S - Support:</strong> Be a calm anchor. Your regulated presence helps them regulate.</li>
+                    <li><strong>P - Pause:</strong> Create space for judgement. Consider Risk, Rights, Resources.</li>
+                    <li><strong>O - Offer:</strong> Explain what happens next. Give agency where possible.</li>
+                    <li><strong>N - Notify:</strong> Tell the DSL. You don't need certainty — you need to share.</li>
+                    <li><strong>D - Document:</strong> Record using GOLD (Ground, Objective, Language, Dated).</li>
+                </ul>
+                <h4><i class="fas fa-brain"></i> Built on ACT</h4>
+                <ul>
+                    <li><strong>Active Intervention:</strong> Inaction is not neutral. Be an upstander.</li>
+                    <li><strong>Contextual Safeguarding:</strong> Harm happens beyond families — peers, online, community.</li>
+                    <li><strong>Trauma-Informed Practice:</strong> Safety, dignity, compassion. "What happened to you?"</li>
+                </ul>`
+            }
+        ];
+
+        // Find best matching answer
+        function findAnswer(question) {
+            const q = question.toLowerCase();
+            let bestMatch = null;
+            let bestScore = 0;
+            
+            for (const item of knowledgeBase) {
+                let score = 0;
+                for (const keyword of item.keywords) {
+                    if (q.includes(keyword.toLowerCase())) {
+                        score += keyword.length; // Longer matches score higher
+                    }
+                }
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMatch = item;
+                }
+            }
+            
+            return bestMatch;
+        }
+
+        // Ask RESPOND function
+        function askRespond() {
+            const input = document.getElementById('ask-input');
+            const responseDiv = document.getElementById('ask-response');
+            const question = input.value.trim();
+            
+            if (!question) {
+                responseDiv.innerHTML = '<div class="ask-error"><i class="fas fa-exclamation-circle"></i><p>Please enter a question</p></div>';
+                return;
+            }
+            
+            const match = findAnswer(question);
+            
+            if (match) {
+                responseDiv.innerHTML = `<div class="ask-answer"><h4 class="answer-title"><i class="fas fa-check-circle"></i> ${match.title}</h4>${match.answer}</div>`;
+            } else {
+                responseDiv.innerHTML = `<div class="ask-answer">
+                    <h4 class="answer-title"><i class="fas fa-info-circle"></i> General Guidance</h4>
+                    <p>I couldn't find a specific answer, but here's the key principle:</p>
+                    <p><strong>When in doubt, notify your DSL.</strong> You don't need certainty to share a concern. Your observation might be the piece that completes the picture.</p>
+                    <h4><i class="fas fa-arrow-right"></i> The RESPOND Steps</h4>
+                    <ul>
+                        <li><strong>Recognise</strong> — Trust your instincts if something feels wrong</li>
+                        <li><strong>Engage</strong> — Listen without leading questions</li>
+                        <li><strong>Support</strong> — Be calm, be present</li>
+                        <li><strong>Pause</strong> — Think: Risk, Rights, Resources</li>
+                        <li><strong>Offer</strong> — Explain what happens next</li>
+                        <li><strong>Notify</strong> — Tell the DSL today</li>
+                        <li><strong>Document</strong> — Use GOLD standard</li>
+                    </ul>
+                    <p>Try rephrasing your question, or ask about: disclosures, documentation, reporting, online safety, child-on-child abuse, or supporting a distressed child.</p>
+                </div>`;
+            }
+        }
+
+        // Allow Enter key to submit (Shift+Enter for new line)
+        document.addEventListener('DOMContentLoaded', function() {
+            const askInput = document.getElementById('ask-input');
+            if (askInput) {
+                askInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        askRespond();
+                    }
+                });
+            }
+        });
+
+        // FAQ toggle
+        function toggleFaq(card) {
+            const wasActive = card.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-card').forEach(c => {
+                c.classList.remove('active');
+            });
+            
+            // Open clicked if it wasn't already open
+            if (!wasActive) {
+                card.classList.add('active');
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
